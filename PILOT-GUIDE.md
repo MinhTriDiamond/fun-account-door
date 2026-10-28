@@ -73,8 +73,9 @@ set client_secret = '<BCRYPT_HASH_MỚI>', updated_at = now()
 where client_id = 'fun_farm_client';
 ```
 
-Giá trị thô mới nhập vào Lovable Secrets của Farm với tên biến
-`VITE_FUN_FARM_CLIENT_SECRET`, rồi redeploy Farm.
+Giá trị thô mới nhập vào Environment variables (Production) của Cloudflare
+Pages project của Farm với tên biến `VITE_FUN_FARM_CLIENT_SECRET` (Farm chạy
+production ở Pages, không phải Lovable), rồi redeploy Farm.
 
 ## 2. Deploy cửa lên Cloudflare Pages
 
@@ -103,11 +104,14 @@ quay về cửa; OTP dạng mã 6 số không cần bước này nhưng cứ th�
 
 1. Chạy SQL 1c (và 1d nếu cần xoay secret Farm).
 2. Deploy cửa xong (mục 2) + redirect allowlist xong (mục 3).
-3. Nhập env Farm TRƯỚC khi merge để build sau merge nhận đủ biến:
+3. Nhập env Farm TRƯỚC khi merge để build sau merge nhận đủ biến, nhập trong
+   Cloudflare Pages project của Farm (Settings -> Environment variables,
+   Production; Farm chạy production ở Pages nên Lovable Secrets không có tác
+   dụng với farm.fun.rich):
    - `VITE_FUN_PROFILE_SSO_BASE_URL` = `https://account.fun.rich`
    - `VITE_FUN_FARM_CLIENT_SECRET` = giá trị thô của fun_farm_client
    Rồi tạo PR Farm từ patch trong `farm-patch/` (Muse không push được lên
-   funfarm, xem `farm-patch/README-apply.md`), merge PR -> Lovable redeploy
+   funfarm, xem `farm-patch/README-apply.md`), merge PR -> Pages tự deploy lại
    farm.fun.rich.
 4. Nhập env FUN Profile TRƯỚC khi merge:
    - `VITE_FUN_PROFILE_PILOT_CLIENT_SECRET` = giá trị thô của pilot client
