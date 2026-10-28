@@ -43,7 +43,7 @@ dang nhap TU DONG chuyen thang sang cua, khong qua man hinh chon nao khac:
   `VITE_FUN_FARM_CLIENT_SECRET` (bat buoc theo sso-token C3, neu khong doi ma
   tra 401). Khong doi clientId, redirectUri, scope, storage.
 
-## Env can nhap truoc khi build (Lovable Secrets cua Farm)
+## Env can nhap truoc khi build (Cloudflare Pages project cua Farm: Settings -> Environment variables, Production)
 
 - `VITE_FUN_PROFILE_SSO_BASE_URL` = `https://account.fun.rich`
 - `VITE_FUN_FARM_CLIENT_SECRET` = gia tri tho cua fun_farm_client (xem
