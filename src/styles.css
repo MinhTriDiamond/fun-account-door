@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f6f4ef;
+  color: #222;
+}
+
+a {
+  color: #1a56db;
+}
+
+.door-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.door-card {
+  width: 100%;
+  max-width: 440px;
+  background: #fff;
+  border: 1px solid #e5e0d5;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.door-card h1 {
+  margin: 0 0 4px;
+  font-size: 26px;
+}
+
+.door-card h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.door-sub {
+  margin: 0 0 20px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.door-field {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.door-field span {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.door-field input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.door-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 10px;
+  background: #1a56db;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.door-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.door-btn-secondary {
+  background: #fff;
+  color: #1a56db;
+  border: 1px solid #1a56db;
+}
+
+.door-error {
+  background: #fdecea;
+  border: 1px solid #f5c6c2;
+  color: #8b1e1e;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.door-note {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #777;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.door-row {
+  display: flex;
+  gap: 10px;
+}
+
+.door-row .door-btn {
+  flex: 1;
+}
+
+.door-spinner {
+  text-align: center;
+  padding: 24px 0;
+  color: #666;
+}
