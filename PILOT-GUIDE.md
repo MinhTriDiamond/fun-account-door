@@ -58,8 +58,9 @@ values (
 );
 ```
 
-Giá trị thô của secret này sau đó nhập vào Lovable Secrets của app fun.rich với
-tên biến `VITE_FUN_PROFILE_PILOT_CLIENT_SECRET`, rồi redeploy app.
+Giá trị thô của secret này sau đó nhập vào Environment variables (Production)
+của Cloudflare Pages project của app fun.rich (fun.rich cũng chạy ở Pages)
+với tên biến `VITE_FUN_PROFILE_PILOT_CLIENT_SECRET`, rồi redeploy app.
 
 ### 1d. Secret của fun_farm_client (cho luồng Farm)
 
@@ -113,9 +114,11 @@ quay về cửa; OTP dạng mã 6 số không cần bước này nhưng cứ th�
    Rồi tạo PR Farm từ patch trong `farm-patch/` (Muse không push được lên
    funfarm, xem `farm-patch/README-apply.md`), merge PR -> Pages tự deploy lại
    farm.fun.rich.
-4. Nhập env FUN Profile TRƯỚC khi merge:
+4. Nhập env FUN Profile TRƯỚC khi merge, nhập trong Cloudflare Pages project
+   của app fun.rich (Settings -> Environment variables, Production; fun.rich
+   cũng chạy ở Pages):
    - `VITE_FUN_PROFILE_PILOT_CLIENT_SECRET` = giá trị thô của pilot client
-   Rồi merge PR nháp FUN Profile (#30) -> Lovable redeploy fun.rich.
+   Rồi merge PR nháp FUN Profile (#30) -> Pages tự deploy lại fun.rich.
 5. Test theo ma trận mục 5.
 
 Lưu ý: redirect của Farm (`https://farm.fun.rich/auth/callback`) đã đăng ký sẵn
