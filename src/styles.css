@@ -124,3 +124,269 @@ a {
   padding: 24px 0;
   color: #666;
 }
+
+/* ===== Giao diện trang đăng nhập theo mẫu trang Auth của FUN Profile ===== */
+/* Khung hologram + tiêu đề hologram + tab viên thuốc + input bo tròn +
+   nút xanh lá gradient + nút Google viền cầu vồng. Sao chép đúng gradient,
+   bán kính và bóng của UnifiedAuthForm / ClassicEmailLogin / SocialLogin
+   bên FUN Profile; chỉ viết lại bằng CSS thuần vì cửa không dùng Tailwind. */
+
+@keyframes fp-holo-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.fp-auth-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: #faf8f2;
+}
+
+.fp-holo-frame {
+  width: 100%;
+  max-width: 512px;
+  padding: 4px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #9333ea, #3b82f6, #22c55e, #f97316, #ec4899, #9333ea);
+  background-size: 300% 300%;
+  animation: fp-holo-shimmer 6s ease infinite;
+  box-shadow: 0 0 25px rgba(147, 51, 234, 0.3), 0 4px 20px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.fp-card {
+  background: rgba(254, 253, 250, 0.9);
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.fp-title {
+  margin: 0 0 8px;
+  text-align: center;
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 800;
+  background: linear-gradient(135deg, #9333ea 0%, #3b82f6 25%, #22c55e 50%, #f97316 75%, #ec4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: fp-holo-shimmer 4s ease infinite;
+}
+
+.fp-sub {
+  margin: 0 0 20px;
+  text-align: center;
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.fp-error {
+  background: #fdecea;
+  border: 1px solid #f5c6c2;
+  color: #8b1e1e;
+  border-radius: 16px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.fp-field {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.fp-field > span:first-child {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #334155;
+}
+
+.fp-field input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 2px solid #cbd5e1;
+  border-radius: 999px;
+  background: linear-gradient(to bottom right, #ffffff, #f8fafc);
+  font-size: 16px;
+  color: #222;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.fp-field input:focus {
+  border-color: #34d399;
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.3);
+}
+
+.fp-password-wrap {
+  position: relative;
+  display: block;
+}
+
+.fp-password-wrap input {
+  padding-right: 48px;
+}
+
+.fp-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.fp-eye svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.fp-eye:hover {
+  color: #059669;
+}
+
+.fp-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(235, 232, 222, 0.5);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.fp-tab {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 8px;
+  background: transparent;
+  color: #7e22ce;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.fp-tab-active {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.fp-btn {
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #166534 0%, #15803d 50%, #166534 100%);
+  box-shadow: 0 4px 20px rgba(22, 101, 52, 0.4);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.fp-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.fp-ghost {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  color: #059669;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.fp-ghost:hover {
+  background: #ecfdf5;
+  border-radius: 999px;
+}
+
+.fp-ghost:disabled {
+  opacity: 0.6;
+}
+
+.fp-google-wrap {
+  margin-top: 20px;
+  padding: 1.5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff0000 0%, #ff7f00 14%, #ffff00 28%, #00ff00 42%, #0000ff 57%, #4b0082 71%, #9400d3 85%, #ff0000 100%);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.15), 0 0 10px rgba(0, 255, 0, 0.15), 0 0 10px rgba(0, 0, 255, 0.15);
+}
+
+.fp-google-btn {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #166534 0%, #15803d 50%, #166534 100%);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.fp-google-btn:disabled {
+  opacity: 0.6;
+}
+
+.fp-google-btn svg {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.fp-note {
+  margin: 20px 0 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.fp-turnstile {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+@media (max-width: 480px) {
+  .fp-title {
+    font-size: 30px;
+  }
+
+  .fp-card {
+    padding: 20px 16px;
+  }
+}
